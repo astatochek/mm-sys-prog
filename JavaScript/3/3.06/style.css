@@ -20,38 +20,31 @@ body
     font-size: 15px;
     font-family: 'Segoe UI';
 }
-.graph
+.table
 {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.col
-{
-    display: flex;
-    margin: 5px;
-    flex-direction: column;
-    width: 150px;
-    font-size: 15px;
-    font-family: 'Segoe UI';
-    text-align: center;
-    
-}
-.wrapper
-{
-    display: flex;
-    background-color: rgb(219, 219, 219);
-    height: 400px;
-    flex-direction: column;
-    justify-content: end;
-}
-.bar
-{
-    display: flex;
-    height: 25%;
-    background-color: rgb(87, 124, 248);
+    align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+.row
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+.cell
+{
+    display: flex;
+    border: 0px solid rgb(230, 230, 230);
+    margin: 0px;
+    padding: 0px;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+
 }
 input
 {
@@ -66,4 +59,8 @@ input
     font-size: 15px;
     align-items: center;
     color: rgb(255, 255, 255);
+}
+img
+{
+    height: 200px;
 }
