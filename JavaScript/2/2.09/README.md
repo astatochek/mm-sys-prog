@@ -3,7 +3,9 @@
 вараметру ```width``` в блоке ```img```. Затем функции вызовут себя же через 1 миллисекунду, если предел ширины не был достигрут, через
 ```js
 setTimeout("changeSizeDown()", 1)
-// или
+```
+или
+```js
 setTimeout("changeSizeUp()", 1)
 ```
-```change()``` вызовет ```changeSizeUp()```
+```change()``` вызовет ```changeSizeUp()``` 
