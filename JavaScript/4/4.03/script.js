@@ -1,6 +1,6 @@
 
 
-function processAction(code)
+function processAction()
 {
     let arr = document.getElementsByName("field")
     let index = 0
