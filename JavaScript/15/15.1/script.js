@@ -16,7 +16,6 @@ function show()
     for (let i = 0; i < n; i++)
     {
         x = a + i * (b - a) / (n - 1)
-        console.log(x)
         out.innerText += `${i+1}: f(${round(x)}): ${round(eval(y))}\n`
     }
 }
