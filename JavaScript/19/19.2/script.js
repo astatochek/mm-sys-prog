@@ -1,11 +1,20 @@
-let par = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }
+
+function formatDate(date)
+{
+    let dd = date.getDate();
+    if (dd < 10) dd = '0' + dd;
+
+    let mm = date.getMonth() + 1;
+    if (mm < 10) mm = '0' + mm;
+
+    let yy = date.getFullYear() % 100;
+    if (yy < 10) yy = '0' + yy;
+
+    return dd + '.' + mm + '.' + yy;
+}
 
 
-function getChosen(options)
+function getChosen(options) // возвращает выбранный в select элемент
 {
     for (let i = 0; i < options.length; i++)
     {
@@ -17,23 +26,31 @@ function getChosen(options)
 }
 
 
-function putBlocks(text, output)
+function putCol(text, output, num, putNums) // создает колонки итоговой таблицы и заполняет ячейками
 {
     let div = document.createElement('div')
-    div.className = "cell";
-    div.innerText = text
+    div.className = "col";
+    let cell
+    for (let i = 0; i <= num; i++)
+    {
+        cell = document.createElement('div')
+        cell.className = "cell"
+        if (i == 0)
+        {
+            cell.innerText = text
+        }
+        else if (putNums)
+        {
+            cell.innerText = i
+        }
+        div.append(cell)
+    }
     output.append(div)
 }
 
 
-function getList()
+function getList() // обработка входных данных и все остальное
 {
-    let blocks = document.getElementsByClassName("cell")
-    while (blocks.length != 0)
-    {
-        blocks[0].remove()
-    }
-
     let startDate = new Date()
     startDate.setDate(document.getElementById("startDate").value)
     startDate.setFullYear(document.getElementById("startYear").value)
@@ -71,11 +88,23 @@ function getList()
     }
     console.log(chosenDay)
 
-    out = document.getElementById("output")
-    let res = []
+    let toRemove = document.getElementsByClassName("output") // освобождаем блоки вывода
+    while (toRemove.length != 0)
+    {
+        toRemove[0].remove()
+    }
 
-    let name = getChosen(document.getElementById("subject").options).innerText
-    document.getElementById("name").textContent = `Расписание по предмету ${name}`
+    out = document.getElementById("outputWrapper")
+    let div = document.createElement('div') // создаем пустой блок для вывода
+    div.className = "output";
+    div.id = "out"
+    out.append(div)
+    let table = document.createElement('div')
+    table.className = "table"
+    
+
+
+    let res = [] // массив для дат
     
     num = (Number(endDate) - Number(startDate)) / (24 * 3600 * 1000)
     let cur = startDate
@@ -83,13 +112,30 @@ function getList()
     {
         if (cur.getDay() == chosenDay)
         {
-            res.push(`${cur.toLocaleString("ru", par)}`)
+            res.push(formatDate(cur))
         }
         cur.setDate(cur.getDate() + 1)
     }
 
+    let name = getChosen(document.getElementById("subject").options).innerText
+    let n = Number(document.getElementById("students").value)
+    let group = document.getElementById("group").value
+
+    let block = document.createElement('div')
+    block.className = "text"
+    block.innerHTML = `Дисциплина: <b>${name}</b>`
+    div.append(block)
+    block = document.createElement('div')
+    block.className = "text"
+    block.innerHTML = `<i>Группа: <b>${group}</b></i>`
+    div.append(block)
+    div.append(table)
+
+    putCol("№", table, n, true)
+    putCol("ФИО", table, n, false)
     for (let i in res)
     {
-        putBlocks(res[i], out)
+        putCol(res[i], table, n, false)
     }
+    putCol("Отметка", table, n, false)
 }
