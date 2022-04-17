@@ -21,33 +21,20 @@ function getElements(s)
 function newUnit(let, val, unit) // переменная, bool значение, скобка
 {
     let res = []
-    if (val) // если заданная переменная теперь true
+    for (let i in unit)
     {
-        for (let i in unit)
-        {
-            if (unit[i].length == 2 && unit[i][1] == let)
-                continue
-            if (unit[i] == let)
-                return true
-            res.push(unit[i])
-        }
-        if (res.length == 0) return false
-        return res
+        if (val && unit[i].length == 2 && unit[i][1] == let)
+            continue
+        if (val && unit[i] == let)
+            return true
+        if (!val && unit[i].length == 2 && unit[i][1] == let)
+            return true
+        if (!val && unit[i] == let)
+            continue
+        res.push(unit[i])
     }
-    else // если заданная переменная теперь false
-    {
-        for (let i in unit)
-        {
-            if (unit[i].length == 2 && unit[i][1] == let)
-                return true
-            if (unit[i] == let)
-                continue
-            res.push(unit[i])
-        }
-        if (res.length == 0) return false
-        return res
-    }
-    
+    if (res.length == 0) return false
+    return res
 }
 
 
@@ -103,9 +90,6 @@ function DPLL(disj, dict)
     }
     return false
 }
-
-
-
 
 
 function show()
