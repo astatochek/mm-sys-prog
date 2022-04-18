@@ -95,16 +95,17 @@ function DPLL(disj, dict)
 function show()
 {
     let formula = document.getElementById("func").value
+    out.innerText = `${formula}\n`
 
     let disjunctive = toDisjunctive(formula)
     
     for (let i in disjunctive) disjunctive[i] = getElements(disjunctive[i])
 
     let res = DPLL(disjunctive, new Map())
-    if (res == false) out.innerText = `НЕРЕЗРЕШИМО`
+    if (res == false) out.innerText += `НЕРЕЗРЕШИМО`
     else
     {
-        out.innerText = `РЕЗРЕШИМО ПРИ\n`
+        out.innerText += `РЕЗРЕШИМО ПРИ\n`
         for (var [key, value] of res) out.innerText += `${key} => ${value}\n`
     }
 }
