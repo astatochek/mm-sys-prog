@@ -102,10 +102,10 @@ function show()
     for (let i in disjunctive) disjunctive[i] = getElements(disjunctive[i])
 
     let res = DPLL(disjunctive, new Map())
-    if (res == false) out.innerText += `НЕРЕЗРЕШИМО`
+    if (res == false) out.innerText += `НЕРАЗРЕШИМО`
     else
     {
-        out.innerText += `РЕЗРЕШИМО ПРИ\n`
+        out.innerText += `РАЗРЕШИМО ПРИ\n`
         for (var [key, value] of res) out.innerText += `${key} => ${value}\n`
     }
 }
