@@ -6,6 +6,7 @@ let opts = {
     year: 'numeric'
 }
 
+
 function formatDate(num)
 {
     let date = new Date(Number(num))
@@ -22,10 +23,18 @@ function formatDate(num)
 }
 
 
+function getToday()
+{
+    let now = new Date()
+    show(Number(now))
+}
+
+
 function darken(num)
 {
     document.getElementById(`${num}`).style = "background-color: rgb(200, 200, 200);"
 }
+
 
 function lighten(num)
 {

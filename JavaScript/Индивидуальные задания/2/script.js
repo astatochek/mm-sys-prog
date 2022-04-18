@@ -1,5 +1,5 @@
 let out = document.getElementById("output")
-let iter = 100 // количесвто попыток теста Ферма
+let iter = 100 // количество попыток теста Ферма
 
 
 function getRandom(floor, ceiling)
