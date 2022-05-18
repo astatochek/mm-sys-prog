@@ -11,3 +11,15 @@
 
 * Система позволяет быть зарегистрированными нескольким пользователям с одинаковым именем.
 * Нет возможности удалять пользователей.
+
+### Пример работы
+![homepage1](pictures/homepage%201.png)
+![database1](pictures/database%201.png)
+![homepage2](pictures/homepage%202.png)
+![message1](pictures/message%201.png)
+![message2](pictures/message%202.png)
+![database2](pictures/database%202.png)
+![homepage3](pictures/homepage%203.png)
+![message3](pictures/message%203.png)
+![homepage4](pictures/homepage%204.png)
+![database3](pictures/database%203.png)

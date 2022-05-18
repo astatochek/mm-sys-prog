@@ -4,3 +4,6 @@
 ```php
 $_SESSION["ans"]=rand(0,1);
 ```
+### Пример работы
+##### (коллаж)
+![game](pictures/game.png)
