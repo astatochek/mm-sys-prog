@@ -1,6 +1,6 @@
 # Task 2
 * Загрузим в ```PhpMyAdmin``` (используется OpenServer) тренировочную базу данных [MySQL—world.sql](https://dev.mysql.com/doc/index-other.html) и рассмотрим раблицу ```countrylanguage```.
-* Выведем первые 15 строк и используем только столбцы ```CountryCode```, ```Language```, ```IsOfficial```.
+* Выведем первые 15 строк и используем только столбцы ```CountryCode```, ```Language```, ```IsOfficial```
 ```cmd
 mysql> SELECT CountryCode, Language, IsOfficial  FROM `countrylanguage` limit 15; 
 +-------------+------------------+------------+
